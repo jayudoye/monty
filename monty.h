@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <fcntl.h>
-
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack
@@ -62,6 +62,11 @@ typedef struct arg_s
 
 extern arg_t *arguments;
 
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+int dprintf(int fd, const char *format, ...);
+FILE *fdopen(int fd, const char *mode);
+
+
 /* interpreter functions*/
 void validate_args(int argc);
 void initialize_args(void);
@@ -77,6 +82,7 @@ void free_args(void);
 int is_num(char *s);
 void free_head(void);
 void free_stack(stack_t *head);
+void invalid_opcode(void);
 void free_all_args(void);
 
 /* stack opcode functions*/
