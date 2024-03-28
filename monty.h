@@ -93,5 +93,10 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+stack_t *push(stack_t **head, const int n);
+size_t print_stack(const stack_t *h);
+void free_stack(stack_t *head);
+int delete_at_index(stack_t **head, unsigned int index);
+size_t stack_len(const stack_t *h);
 
 #endif
