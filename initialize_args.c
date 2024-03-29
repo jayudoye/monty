@@ -21,5 +21,4 @@ void initialize_args(void)
 	arguments->no_tokens = 0;
 	arguments->line_number = 0;
 	arguments->stack_len = 0;
-	arguments->stack = 1;
 }
