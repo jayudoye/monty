@@ -99,17 +99,3 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	(*stack) = second;
 }
-
-#include "monty.h"
-
-/**
- * nop - A function that does nothing
- * the results in the first node
- * @stack: a pointer to the stack
- * @line_number: position of the opcode in the file
- */
-void nop(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
