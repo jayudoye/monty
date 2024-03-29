@@ -19,12 +19,14 @@ void tokens(void)
 		token = strtok(NULL, delims);
 	}
 
-	arguments->tokens = malloc(sizeof(char *) * (arguments->no_tokens + 1));
+	arguments->tokens = malloc(sizeof(char *) * 
+			(arguments->no_tokens + 1));
 	strcpy(linecpy, arguments->line);
 	token = strtok(linecpy, delims);
 	while (token)
 	{
-		arguments->tokens[i] = malloc(sizeof(char) * (strlen(token) + 1));
+		arguments->tokens[i] = malloc(sizeof(char) * 
+				(strlen(token) + 1));
 		if (arguments->tokens[i] == NULL)
 			malloc_failed();
 		strcpy(arguments->tokens[i], token);

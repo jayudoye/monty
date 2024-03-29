@@ -9,7 +9,7 @@
 void get_opcode(void)
 {
 	instruction_t instructions[] = {
-		{"push", &s_push}, {"pall", &pall},
+		{"push", &push}, {"pall", &pall},
 		{"pint", &pint}, {"pop", &pop},
 		{"swap", &swap}, {"add", &add},
 		{"nop", &nop}, {NULL, NULL}
@@ -22,12 +22,14 @@ void get_opcode(void)
 	i = 0;
 	while (instructions[i].opcode != NULL)
 	{
-		if (strcmp(instructions[i].opcode, arguments->tokens[0]) == 0)
+		if (strcmp(instructions[i].opcode, arguments->tokens[0]) 
+			== 0)
 		{
 			arguments->instruction->opcode = instructions[i].opcode;
 			arguments->instruction->f = instructions[i].f;
 			return;
 		}
+		i++;
 	}
 
 	invalid_opcode();

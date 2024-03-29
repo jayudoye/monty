@@ -58,6 +58,7 @@ typedef struct arg_s
 	int no_tokens;
 	instruction_t *instruction;
 	stack_t *head;
+	int stack_len;
 } arg_t;
 
 extern arg_t *arguments;
@@ -86,20 +87,13 @@ void invalid_opcode(void);
 void free_all_args(void);
 
 /* stack opcode functions*/
-void s_push(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-stack_t *push(stack_t **head, const int n);
-size_t print_stack(const stack_t *h);
-void free_stack(stack_t *head);
-int delete_at_index(stack_t **head, unsigned int index);
-size_t stack_len(const stack_t *h);
-stack_t *node_at_index(stack_t *head, unsigned int index);
-stack_t *insert_at_end(stack_t **head, const int n);
 
 #endif
 
