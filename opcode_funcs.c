@@ -63,7 +63,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * @line_number: line number where pint is called
 */
 
-void pint(stack_t **stack, int line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
 	(void) stack;
 
@@ -77,3 +77,28 @@ void pint(stack_t **stack, int line_number)
 
 	printf("%d\n", arguments->head->n);
 }
+
+/**
+ * pop - deletes top element in a stack
+ * @stack: pointer to stack
+ * @line_number: line where pop is called
+*/
+
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = arguments->head;
+
+	(void) stack;
+
+	if (arguments->head == NULL)
+	{
+		dprintf(2, "L%d: can't pop an empty stack", line_number);
+		free_all_args();
+		exit(EXIT_FAILURE);
+	}
+
+	arguments->head = temp->next;
+	free(temp);
+	arguments->stack_len -= 1;
+}
+
