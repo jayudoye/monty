@@ -22,7 +22,7 @@ void malloc_failed(void)
 void invalid_opcode(void)
 {
 	dprintf(2, "L%d: unknown instruction %s\n",
-			arguments->line_number, arguments->tokens);
+			arguments->line_number, arguments->tokens[0]);
 	free_all_args();
 	exit(EXIT_FAILURE);
 }
