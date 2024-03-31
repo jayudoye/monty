@@ -26,3 +26,15 @@ void add(stack_t **stack, unsigned int line_number)
     delete_top();
     arguments->stack_len -= 1;
 }
+
+/**
+ * nop - doesn't do anything
+ * @stack: pointer to stack
+ * @line_number: line where nop is called
+*/
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+    (void) stack;
+    (void) line_number;
+}
