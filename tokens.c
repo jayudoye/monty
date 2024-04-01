@@ -21,6 +21,8 @@ void tokens(void)
 
 	arguments->tokens = malloc(sizeof(char *) *
 			(arguments->no_tokens + 1));
+	if (arguments->tokens == NULL)
+		malloc_failed();
 	strcpy(linecpy, arguments->line);
 	token = strtok(linecpy, delims);
 	while (token)

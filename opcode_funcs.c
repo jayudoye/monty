@@ -61,7 +61,7 @@ void pall(stack_t **stack, unsigned int line_number)
  * pint - prints the top element of the stack
  * @stack: pointer to stack
  * @line_number: line number where pint is called
-*/
+ */
 
 void pint(stack_t **stack, unsigned int line_number)
 {
@@ -70,7 +70,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (arguments->head == NULL)
 	{
 		dprintf(2, "L%d: can't pint, stack empty", line_number
-		);
+		       );
 		free_all_args();
 		exit(EXIT_FAILURE);
 	}
@@ -82,12 +82,10 @@ void pint(stack_t **stack, unsigned int line_number)
  * pop - deletes top element in a stack
  * @stack: pointer to stack
  * @line_number: line where pop is called
-*/
+ */
 
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = arguments->head;
-
 	(void) stack;
 
 	if (arguments->head == NULL)
@@ -96,9 +94,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		free_all_args();
 		exit(EXIT_FAILURE);
 	}
-
-	arguments->head = temp->next;
-	free(temp);
+	delete_top();
 	arguments->stack_len -= 1;
 }
 
@@ -107,7 +103,7 @@ void pop(stack_t **stack, unsigned int line_number)
  * swap - swaps the two top elements of the  stack
  * @stack: pointer to stack
  * @line_number: line where swap is called
-*/
+ */
 
 void swap(stack_t **stack, unsigned int line_number)
 {
@@ -117,7 +113,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (arguments->stack_len < 2)
 	{
-		dprintf(2,"L%d: can't swap, stack too short", line_number);
+		dprintf(2, "L%d: can't swap, stack too short", line_number);
 		free_all_args();
 		exit(EXIT_FAILURE);
 	}
@@ -127,7 +123,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	temp_1->next = temp_2->next;
 	if (temp_1->next)
 		temp_1->next->prev = temp_1;
-	
+
 	temp_2->next = temp_1;
 	temp_1->prev = temp_2;
 	temp_2->prev = NULL;

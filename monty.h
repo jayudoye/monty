@@ -47,6 +47,7 @@ typedef struct instruction_s
  * @no_tokens: number of tokens created
  * @instruction: valid instructions
  * @head: first node/ top of stack
+ * @stack_len: tracks number of elements in stack
  */
 
 typedef struct arg_s
@@ -85,18 +86,17 @@ void free_head(void);
 void free_stack(stack_t *head);
 void invalid_opcode(void);
 void free_all_args(void);
+void delete_top(void);
 
 /* stack opcode functions*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-/*
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
-*/
 
 #endif
 
