@@ -14,7 +14,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (arguments->stack_len < 2)
 	{
-		dprintf(2, "L%d: can't add, stack too short", line_number);
+		dprintf(2, "L%d: can't add, stack too short\n", line_number);
 		free_all_args();
 		exit(EXIT_FAILURE);
 	}
